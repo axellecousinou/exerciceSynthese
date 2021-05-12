@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+</head>
+<body>
+<h1>Exercice de synthèse - Axelle Cousinou</h1>
+
+<-- Ici mettre le truc de recherche comme ça ça rajoute un espace -->
+
+<table style="width:60%; margin:auto">
+  <tr>
+    <th>Album</th>
+    <th>Artist</th>
+  </tr>
+  {% for album in albums %}
+  <tr>
+    <td>album.title</td>
+    <td>album.artist.name</td>
+  </tr>
+  {% endfor %}
+
+</table>
+</body>
+</html>
