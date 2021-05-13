@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <title>Liste de l'album</title>
+</head>
+<body>
+{% if album_tracks %}
+<h1>Liste des titres de {{ album_name }} par {{ artist }}</h1>
+<table style="width:60%; margin:auto; padding:2%">
+  <tr>
+    <th>Title</th>
+    <th>Composers</th>
+    <th>Duration (ms)</th>
+    <th>Price</th>
+  </tr>
+  {% for track in album_tracks %}
+  <tr>
+    <td>{{ track.name }}</td>
+    <td>{{ track.composer }}</td>
+    <td class="centered">{{ track.milliseconds }}</td>
+    <td class="centered">{{ track.unitPrice }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<h3>Cet album est vide</h3>
+{% endif %}
+</body>
+</html>

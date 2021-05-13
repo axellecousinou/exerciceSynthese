@@ -1,0 +1,26 @@
+table {
+    border-spacing: 0px;
+}
+
+th {
+    border-bottom: 2px solid black;
+    padding: 1%;
+}
+
+table tr:nth-child(even) {
+    background-color: floralwhite;
+}
+
+td {
+    border-bottom:1px solid darkgrey;
+    padding: 1.5%;
+}
+
+.centered {
+    /* Faire un truc pour que le texte soit centré dans la colonne */
+}
+
+a {
+    color: black;
+    text-decoration: None;
+}

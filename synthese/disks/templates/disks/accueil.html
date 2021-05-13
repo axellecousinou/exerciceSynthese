@@ -2,25 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css"/>
     <title>Accueil</title>
 </head>
 <body>
 <h1>Exercice de synthèse - Axelle Cousinou</h1>
 
-<-- Ici mettre le truc de recherche comme ça ça rajoute un espace -->
+<form method="post" enctype="multipart/form-data" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
 
-<table style="width:60%; margin:auto">
+{% if albums %}
+<table style="width:60%; margin:auto; padding:2%">
   <tr>
     <th>Album</th>
     <th>Artist</th>
   </tr>
   {% for album in albums %}
   <tr>
-    <td>album.title</td>
-    <td>album.artist.name</td>
+    <td><a href="{% url 'list_tracks' album_id=album.id %}">{{ album.title }}</a></td>
+    <td>{{ album.artist.name }}</td>
   </tr>
   {% endfor %}
 
 </table>
+{% else %}
+<h3>Aucun album ne correspond à votre recherche</h3>
+{% endif %}
 </body>
 </html>
